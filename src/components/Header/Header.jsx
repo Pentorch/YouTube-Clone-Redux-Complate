@@ -4,20 +4,17 @@ import "./_header.scss";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications, MdApps } from "react-icons/md";
+import { logo } from "../../assets";
 
 const Header = ({ handleToggleSidebar }) => {
   return (
-    <div className="border border-dark header">
+    <div className="header">
       <FaBars
         className="header__menu"
         size={26}
         onClick={() => handleToggleSidebar()}
       />
-      <img
-        src="http://pngimg.com/uploads/youtube/youtube_PNG2.png"
-        alt=""
-        className="header__logo"
-      />
+      <img src={logo} alt="" className="header__logo" />
 
       <form>
         <input type="text" placeholder="Search" />
