@@ -10,10 +10,11 @@
 
   &__top {
     margin-bottom: 0.5rem;
+    margin-right: -25px;
     position: relative;
-    img {
-      width: 100%;
-    }
+    // img {
+    //   width: 100%;
+    // }
     span {
       position: absolute;
       bottom: 0.3rem;
@@ -30,11 +31,12 @@
 
     color: #ffff;
     align-items: center;
-    @include line-clamp(1);
+    // @include line-clamp(1);
   }
   &__details {
     display: flex;
     align-items: center;
+    margin-top: -10px;
   }
   &__channel {
     display: flex;
@@ -52,4 +54,17 @@
       margin-bottom: 0;
     }
   }
+}
+.content-global-img {
+  img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    position: absolute;
+    margin-left: -50px;
+  }
+  position: relative;
+  margin-left: 50px;
 }
