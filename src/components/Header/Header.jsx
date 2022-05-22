@@ -14,11 +14,7 @@ const Header = ({ handleToggleSidebar }) => {
         size={26}
         onClick={() => handleToggleSidebar()}
       />
-      <img
-        src="https://cdn.icon-icons.com/icons2/2699/PNG/512/youtube_logo_icon_168737.png"
-        alt=""
-        className="header__logo"
-      />
+      <img src={logo} alt="" className="header__logo" />
 
       <form>
         <input type="text" placeholder="Search" />
