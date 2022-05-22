@@ -7,10 +7,10 @@ const Video = () => {
       <div className="video__top">
         <img
           id="img"
-          className="style-scope yt-img-shadow img-fluid "
-          width="999px"
+          class="style-scope yt-img-shadow"
           alt=""
-          src="https://i.ytimg.com/vi/N4pxT4gYM4w/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLAx7oV8F5pzhTDohizU-nHAweXRHA"
+          src="https://i.ytimg.com/vi/5HZ9qeFjhYk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLAACW9Spn09z8_fG3juYbxr_B7Cmw"
+          className="img-fluid"
         />
         <span>06:45</span>
       </div>
@@ -20,17 +20,17 @@ const Video = () => {
           class="style-scope yt-img-shadow"
           alt=""
           width="48"
-          src="https://yt3.ggpht.com/ytc/AKedOLTn3FAeWcd7pgq7Bvz5k9SIDj_ccBbFNbbV15bDUA=s68-c-k-c0x00ffffff-no-rj"
+          src="https://yt3.ggpht.com/O-h6r7zzw8GsyOZ2K65SX90Jy5rmHU6_pY9cS9369C216JqGH94CJldQVcTkefWULucZrKsaVQ=s88-c-k-c0x00ffffff-no-rj"
         />
 
         <div className="video__title">
-          Stream Relax + Showcase Your Workspace
+          Zack Tabudlo - Give Me Your Forever (Lyric Video)
         </div>
         <div className="video__channel">
-          <p>Web Programming UNPAS</p>
+          <p>Zack Tabudlo</p>
         </div>
         <div className="video__details">
-          <span>1.3m x watched 5 months ago</span>
+          <span>14m x watched</span>
         </div>
       </div>
     </div>
