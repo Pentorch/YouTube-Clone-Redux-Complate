@@ -4,7 +4,6 @@ import "./_header.scss";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications, MdApps } from "react-icons/md";
-import logo from "../../assets/images/logo/Youtube.png";
 
 const Header = ({ handleToggleSidebar }) => {
   return (
@@ -14,7 +13,11 @@ const Header = ({ handleToggleSidebar }) => {
         size={26}
         onClick={() => handleToggleSidebar()}
       />
-      <img src={logo} alt="" className="header__logo" />
+      <img
+        src="https://cdn.icon-icons.com/icons2/2699/PNG/512/youtube_logo_icon_168737.png"
+        alt=""
+        className="header__logo"
+      />
 
       <form>
         <input type="text" placeholder="Search" />

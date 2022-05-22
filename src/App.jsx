@@ -4,7 +4,11 @@ import { Container } from "react-bootstrap";
 import HomeScreens from "./components/Screens/HomeScreens/HomeScreens";
 import { useState } from "react";
 import "./_app.scss";
-const App = () => {
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginScreen from "./components/Screens/LoginScreen/LoginScreen";
+
+const Layout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
 
   const handleToggleSidebar = () => toggleSidebar((value) => !value);
@@ -14,11 +18,37 @@ const App = () => {
       <Header handleToggleSidebar={handleToggleSidebar} />
       <div className="app__container">
         <Sidebar sidebar={sidebar} handleToggleSidebar={handleToggleSidebar} />
-        <Container fluid className="app_main">
-          <HomeScreens />
+        <Container fluid className="app__main">
+          {children}
         </Container>
       </div>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <HomeScreens />
+            </Layout>
+          }
+        />
+        <Route path="/auth" element={<LoginScreen />} />
+        <Route
+          path="/search"
+          element={
+            <Layout>
+              <h1>Search Results</h1>
+            </Layout>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
