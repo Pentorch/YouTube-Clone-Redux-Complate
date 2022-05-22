@@ -1,14 +1,21 @@
 @import "../../base.scss";
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 1rem 3rem;
+
   background-color: $black-primary;
+
   height: 10vh;
   width: 100%;
 
+  position: fixed;
+  top: 0;
+
+  z-index: 999;
   &__menu {
     display: none;
   }
@@ -18,12 +25,13 @@
     object-fit: contain;
     display: block;
   }
+
   form {
     flex: 0.6;
     display: flex;
     padding: 0.1rem;
     margin: 0 1rem;
-    border-radius: 1px;
+    border-radius: 3px;
     border: 1.2px solid;
     background-color: $black-secondary;
 
@@ -34,10 +42,12 @@
       background: transparent;
       padding: 0.3rem;
       color: $text-color;
+
       &:focus {
         outline: none;
       }
     }
+
     button {
       padding: 0 1.25rem;
       color: $text-color;
@@ -52,7 +62,7 @@
   &__icons {
     flex: 0.15;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     img {
       border-radius: 50%;

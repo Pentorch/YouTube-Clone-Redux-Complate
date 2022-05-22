@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
 $text-color: #b1bdb4;
 
 $black-primary: #16181b;
@@ -21,9 +22,14 @@ body {
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.1px;
 }
-@mixin line-clamp($lines) {
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
+
+@mixin line-clamp($number) {
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $number;
+  -webkit-box-orient: vertical;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }

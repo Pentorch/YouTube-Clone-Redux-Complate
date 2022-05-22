@@ -31,6 +31,14 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
         <MdHistory size={23} />
         <span>History</span>
       </li>
+      <li>
+        <MdLibraryBooks size={23} />
+        <span>Library</span>
+      </li>
+      <li>
+        <MdSentimentDissatisfied size={23} />
+        <span>I dont know</span>
+      </li>
       <hr />
 
       <li>
