@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./loginscreen.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actions/auth.action";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -13,13 +13,13 @@ const LoginScreen = () => {
     dispatch(login());
   };
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   useEffect(() => {
     if (accessToken) {
-      console.log("Login success");
+      history.push("/");
     }
-  }, [accessToken, navigate]);
+  }, [accessToken, history]);
 
   return (
     <div>

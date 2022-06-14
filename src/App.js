@@ -2,10 +2,10 @@ import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { Container } from "react-bootstrap";
 import HomeScreens from "./Screens/HomeScreens/HomeScreens";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./_app.scss";
-
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 
 const Layout = ({ children }) => {
@@ -27,29 +27,37 @@ const Layout = ({ children }) => {
 };
 
 const App = () => {
+  const { accessToken, loading } = useSelector((state) => state.auth);
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!loading && !accessToken) {
+      history.push("/auth");
+    }
+  }, [accessToken, loading, history]);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout>
-              <HomeScreens />
-            </Layout>
-          }
-        />
-        <Route path="/auth" element={<LoginScreen />} />
-        <Route
-          path="/search"
-          element={
-            <Layout>
-              <h1>Search Results</h1>
-            </Layout>
-          }
-        />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Switch>
+        <Route path="/" exact>
+          <Layout>
+            <HomeScreens />
+          </Layout>
+        </Route>
+        <Route path="/auth">
+          <LoginScreen />
+        </Route>
+        <Route path="/search">
+          <Layout>
+            <h1>Search Results</h1>
+          </Layout>
+        </Route>
+        <Route>
+          <Redirect to="/" />
+        </Route>
+      </Switch>
+    </>
   );
 };
 
