@@ -6,6 +6,7 @@ import {
   LOGIN_FAIL,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOG_OUT,
 } from "../actionType";
 
 export const login = () => async (dispatch) => {
@@ -15,7 +16,6 @@ export const login = () => async (dispatch) => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     const res = await auth.signInWithPopup(provider);
-    console.log(res);
 
     const accessToken = res.credential.accessToken;
 
@@ -23,7 +23,9 @@ export const login = () => async (dispatch) => {
       name: res.additionalUserInfo.profile.name,
       photoURL: res.additionalUserInfo.profile.picture,
     };
-    console.log(profile);
+
+    sessionStorage.setItem("ytc-access-token", accessToken);
+    sessionStorage.setItem("ytc-user-token", JSON.stringify(profile));
 
     dispatch({ type: LOGIN_SUCCESS, payload: accessToken });
 
@@ -32,4 +34,11 @@ export const login = () => async (dispatch) => {
     console.log(error.message);
     dispatch({ type: LOGIN_FAIL, payload: error.message });
   }
+};
+
+export const log_out = () => async (dispatch) => {
+  auth.signOut();
+  sessionStorage.removeItem("ytc-access-token");
+  sessionStorage.removeItem("ytc-user-token");
+  dispatch({ type: LOG_OUT });
 };
