@@ -5,7 +5,7 @@ import HomeScreens from "./Screens/HomeScreens/HomeScreens";
 import { useEffect, useState } from "react";
 import "./_app.scss";
 import { useSelector } from "react-redux";
-import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, Redirect, useHistory } from "react-router-dom";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 
 const Layout = ({ children }) => {
@@ -38,26 +38,24 @@ const App = () => {
   }, [accessToken, loading, history]);
 
   return (
-    <>
-      <Switch>
-        <Route path="/" exact>
-          <Layout>
-            <HomeScreens />
-          </Layout>
-        </Route>
-        <Route path="/auth">
-          <LoginScreen />
-        </Route>
-        <Route path="/search">
-          <Layout>
-            <h1>Search Results</h1>
-          </Layout>
-        </Route>
-        <Route>
-          <Redirect to="/" />
-        </Route>
-      </Switch>
-    </>
+    <Switch>
+      <Route path="/" exact>
+        <Layout>
+          <HomeScreens />
+        </Layout>
+      </Route>
+      <Route path="/auth">
+        <LoginScreen />
+      </Route>
+      <Route path="/search">
+        <Layout>
+          <h1>Search Results</h1>
+        </Layout>
+      </Route>
+      <Route>
+        <Redirect to="/" />
+      </Route>
+    </Switch>
   );
 };
 

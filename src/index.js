@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,15 +8,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import store from "./redux/store";
 import "./_base.scss";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
         <App />
       </Router>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

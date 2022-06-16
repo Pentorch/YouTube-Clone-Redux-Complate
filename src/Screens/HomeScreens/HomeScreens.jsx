@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Video from "../../components/Video/Video";
 import { Row, Container, Col } from "react-bootstrap";
 import CategoriesBar from "../../components/CategoriesBar/CategoriesBar";
+import { getPopularVideos } from "../../redux/actions/video.action";
+import { useDispatch } from "react-redux";
+
 const HomeScreens = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPopularVideos());
+  }, [dispatch]);
+
   return (
     <div>
       <Container>
