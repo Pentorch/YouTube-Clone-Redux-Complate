@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./_video.scss";
 import { AiFillEye } from "react-icons/ai";
 import request from "../../api";
+
+import moment from "moment";
+import numeral from "numeral";
+
 const Video = ({ video }) => {
   const {
     id,
@@ -14,6 +18,13 @@ const Video = ({ video }) => {
     },
   } = video;
 
+  const [views, setViews] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [chanelIcon, setChanelIcon] = useState(null);
+
+  const seconds = moment.duration(duration).asSeconds();
+  const _duration = moment.utc(seconds * 1000).format("mm:ss");
+
   useEffect(() => {
     const get_video_details = async () => {
       const {
@@ -24,33 +35,47 @@ const Video = ({ video }) => {
           id: id,
         },
       });
-      console.log(items);
+      setDuration(items[0].contentDetails.duration);
+      setViews(items[0].statistics.viewCount);
     };
     get_video_details();
   }, [id]);
+
+  useEffect(() => {
+    const get_channel_icon = async () => {
+      const {
+        data: { items },
+      } = await request("/channels", {
+        params: {
+          part: "snippet",
+          id: channelId,
+        },
+      });
+      setChanelIcon(items[0].snippet.thumbnails.default);
+    };
+    get_channel_icon();
+  }, [channelId]);
+
   return (
     <div className="video">
       <div className="video__top">
-        <img src={medium.url} alt="" />
-        <span>06:45</span>
+        <img
+          className="style-scope yt-img-shadow img-fluid "
+          src={medium.url}
+          alt=""
+        />
+        <span>{_duration}</span>
       </div>
       <div className="content-global-img">
-        <img
-          id="img"
-          className="style-scope yt-img-shadow"
-          alt=""
-          width="48"
-          src="https://yt3.ggpht.com/O-h6r7zzw8GsyOZ2K65SX90Jy5rmHU6_pY9cS9369C216JqGH94CJldQVcTkefWULucZrKsaVQ=s88-c-k-c0x00ffffff-no-rj"
-        />
+        <img src={chanelIcon?.url} alt="" />
 
-        <div className="video__title">
-          Zack Tabudlo - Give Me Your Forever (Lyric Video)
-        </div>
+        <div className="video__title">{title}</div>
         <div className="video__channel">
-          <p>Zack Tabudlo</p>
+          <p>{channelTitle}</p>
         </div>
         <div className="video__details">
-          <span>14m x watched</span>
+          <span>{numeral(views).format("0.a")} Views •</span>
+          <span>{moment(publishedAt).fromNow()}</span>
         </div>
       </div>
     </div>
