@@ -29,10 +29,10 @@
   &__title {
     margin-bottom: 0.1rem;
 
-    color: #ffff;
-    align-items: center;
-    // @include line-clamp(1);
+    color: #fff;
+    @include line-clamp(1);
   }
+
   &__details {
     display: flex;
     align-items: center;
