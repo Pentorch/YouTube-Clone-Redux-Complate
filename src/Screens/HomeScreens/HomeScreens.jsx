@@ -16,7 +16,7 @@ const HomeScreens = () => {
   const { videos } = useSelector((state) => state.homeVideos);
 
   const fetchData = () => {
-    // LOGIC
+    dispatch(getPopularVideos());
   };
 
   return (
