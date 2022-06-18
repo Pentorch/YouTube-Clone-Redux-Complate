@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Video from "../../components/Video/Video";
 import { Row, Container, Col } from "react-bootstrap";
 import CategoriesBar from "../../components/CategoriesBar/CategoriesBar";
-import { getPopularVideos } from "../../redux/actions/video.action";
+import { getPopularVideos } from "../../redux/actions/videos.action";
 import { useDispatch } from "react-redux";
 
 const HomeScreens = () => {
