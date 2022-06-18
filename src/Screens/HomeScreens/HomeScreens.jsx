@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import Video from "../../components/Video/Video";
 import { Row, Container, Col } from "react-bootstrap";
 import CategoriesBar from "../../components/CategoriesBar/CategoriesBar";
-import { getPopularVideos } from "../../redux/actions/videos.action";
+import {
+  getPopularVideos,
+  getVideosByCategory,
+} from "../../redux/actions/videos.action";
 import { useDispatch, useSelector } from "react-redux";
 
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -13,10 +16,13 @@ const HomeScreens = () => {
     dispatch(getPopularVideos());
   }, [dispatch]);
 
-  const { videos } = useSelector((state) => state.homeVideos);
+  const { videos, activeCategory } = useSelector((state) => state.homeVideos);
 
   const fetchData = () => {
-    dispatch(getPopularVideos());
+    if (activeCategory === "All") dispatch(getPopularVideos());
+    else {
+      dispatch(getVideosByCategory(activeCategory));
+    }
   };
 
   return (
