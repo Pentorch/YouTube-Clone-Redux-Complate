@@ -5,7 +5,6 @@ import {
 } from "../actionType";
 
 import request from "../../api";
-import { type } from "@testing-library/user-event/dist/type";
 
 export const getPopularVideos = () => async (dispatch) => {
   try {
@@ -14,7 +13,7 @@ export const getPopularVideos = () => async (dispatch) => {
       params: {
         part: "snippet,contentDetails,statistics",
         chart: "mostPopular",
-        regionCode: "IN",
+        regionCode: "ID",
         maxResults: "20",
         pageToken: "",
       },

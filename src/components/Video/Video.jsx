@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./_video.scss";
 import { AiFillEye } from "react-icons/ai";
-const Video = () => {
+import request from "../../api";
+const Video = ({ video }) => {
+  const {
+    id,
+    snippet: {
+      channelId,
+      channelTitle,
+      title,
+      publishedAt,
+      thumbnails: { medium },
+    },
+  } = video;
+
+  useEffect(() => {
+    const get_video_details = async () => {
+      const {
+        data: { items },
+      } = await request("/videos", {
+        params: {
+          part: "contentDetails,statistics",
+          id: id,
+        },
+      });
+      console.log(items);
+    };
+    get_video_details();
+  }, [id]);
   return (
     <div className="video">
       <div className="video__top">
-        <img
-          id="img"
-          className="style-scope yt-img-shadow img-fluid "
-          width="999px"
-          alt=""
-          src="https://i.ytimg.com/vi/5HZ9qeFjhYk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLAACW9Spn09z8_fG3juYbxr_B7Cmw"
-        />
+        <img src={medium.url} alt="" />
         <span>06:45</span>
       </div>
       <div className="content-global-img">
