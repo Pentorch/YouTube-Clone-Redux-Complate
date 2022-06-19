@@ -11,7 +11,7 @@ const Comments = () => {
         <img
           src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
           alt="avatar"
-          className="rounded-circle ms-3"
+          className="rounded-circle me-3"
         />
         <form onSubmit={handleComment} className="d-flex flex-grow-1">
           <input
