@@ -1,6 +1,6 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "./_skeletonvideo.scss";
+import "./_skeletonVideo.scss";
 
 const SkeletonVideo = () => {
   return (
