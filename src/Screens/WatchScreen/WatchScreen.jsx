@@ -1,16 +1,20 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import Comments from "../Comments/Comments";
-import VideoHorizontal from "../VideoHorizontal/VideoHorizontal";
-import VideoMetaData from "../VideoMetaData/VideoMetaData";
+import { useParams } from "react-router-dom";
+import Comments from "../../components/Comments/Comments";
+import VideoHorizontal from "../../components/VideoHorizontal/VideoHorizontal";
+import VideoMetaData from "../../components/VideoMetaData/VideoMetaData";
 import "./_watchScreen.scss";
 const WatchScreen = () => {
+  const { id } = useParams();
+
+  // const dispatch = useDispatch();
   return (
     <Row>
       <Col lg={8}>
         <div className="watchScreen__player">
           <iframe
-            src="https://www.youtube.com/embed/tgbNymZ7vqY"
+            src={`https://www.youtube.com/embed/${id}`}
             frameBorder="0"
             title="YouTube video player"
             width="100%"
