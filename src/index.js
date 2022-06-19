@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import store from "./redux/store";
