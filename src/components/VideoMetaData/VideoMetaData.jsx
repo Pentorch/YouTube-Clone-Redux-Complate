@@ -35,7 +35,7 @@ const VideoMetaData = () => {
             className="rounder-circle me-3"
           />
           <div className="d-flex flex-column">
-            <span>Backbench Coder</span>
+            <span>Willy Agustino Efendi</span>
             <span> {numeral(10000).format("0.a")} Subscribers</span>
           </div>
         </div>
