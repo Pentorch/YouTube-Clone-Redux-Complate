@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import Comments from "../Comments/Comments";
 import VideoHorizontal from "../VideoHorizontal/VideoHorizontal";
 import VideoMetaData from "../VideoMetaData/VideoMetaData";
+import "./_watchScreen.scss";
 const WatchScreen = () => {
   return (
     <Row>

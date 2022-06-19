@@ -3,6 +3,7 @@ import "./_videoMetaData.scss";
 import moment from "moment";
 import numeral from "numeral";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
+import ShowMoreText from "react-show-more-text";
 const VideoMetaData = () => {
   return (
     <div className="videoMetaData py-2">
@@ -42,9 +43,22 @@ const VideoMetaData = () => {
         <button className="btn border-0 p-2 m-2">Subscribe</button>
       </div>
       <div className="videoMetaData__description">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus aut
-        autem quidem alias. Nemo magni sed eos expedita beatae alias, molestiae
-        fugiat quas eveniet asperiores adipisci illo eaque, ad neque.
+        <ShowMoreText
+          lines={3}
+          more="SHOW MORE"
+          less="SHOW LESS"
+          anchorClass="my-anchor-css-class"
+          expanded={false}
+        >
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
+          nulla quos similique debitis, minima odit at reprehenderit. Architecto
+          quia consequatur voluptatum? Impedit, earum. Vero quam libero
+          voluptatibus ratione mollitia eligendi? Lorem ipsum dolor, sit amet
+          consectetur adipisicing elit. Asperiores nulla quos similique debitis,
+          minima odit at reprehenderit. Architecto quia consequatur voluptatum?
+          Impedit, earum. Vero quam libero voluptatibus ratione mollitia
+          eligendi?
+        </ShowMoreText>
       </div>
     </div>
   );
