@@ -1,0 +1,31 @@
+@import "../../_base.scss";
+.videoMetaData {
+  &__top {
+    span {
+      cursor: pointer;
+    }
+  }
+
+  &__channel {
+    border-top: 0.2px solid $border-color;
+    border-bottom: 0.2px solid $border-color;
+    img {
+      width: 50px;
+      height: 55px;
+    }
+    button {
+      background-color: red;
+      color: white;
+      border-radius: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      &:hover {
+        color: white;
+      }
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}
