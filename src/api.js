@@ -6,5 +6,6 @@ const request = axios.create({
     key: "AIzaSyBnNRxdq-V50iEse9NDljS2N1PG0FDlRyA",
   },
 });
+// console.log(request);
 
 export default request;
