@@ -4,25 +4,28 @@ import moment from "moment";
 import numeral from "numeral";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
 import ShowMoreText from "react-show-more-text";
-const VideoMetaData = () => {
+const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
+  const { channelId, channelTitle, description, title, publishedAt } = snippet;
+  const { viewCount, likeCount, dislikeCount } = statistics;
+
   return (
     <div className="videoMetaData py-2">
       <div className="videoMetaData__top">
-        <h5>Video Title</h5>
+        <h5>{title}</h5>
         <div className="d-flex justify-content-between align-items-center py-1">
           <span>
-            {numeral(10000).format("0.a")} Views •
-            {moment("2022-06-6").fromNow()}
+            {numeral(viewCount).format("0.a")} Views •
+            {moment(publishedAt).fromNow()}
           </span>
 
           <div className="">
             <span className="ms-3">
               <MdThumbUp size={26} />
-              {numeral(10000).format("0.a")}
+              {numeral(likeCount).format("0.a")}
             </span>
             <span className="ms-3">
               <MdThumbDown size={26} />
-              {numeral(10000).format("0.a")}
+              Tidak Suka
             </span>
           </div>
         </div>
@@ -35,7 +38,7 @@ const VideoMetaData = () => {
             className="rounder-circle me-3"
           />
           <div className="d-flex flex-column">
-            <span>Willy Agustino Efendi</span>
+            <span>{channelTitle}</span>
             <span> {numeral(10000).format("0.a")} Subscribers</span>
           </div>
         </div>
@@ -50,14 +53,7 @@ const VideoMetaData = () => {
           anchorClass="my-anchor-css-class"
           expanded={false}
         >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-          nulla quos similique debitis, minima odit at reprehenderit. Architecto
-          quia consequatur voluptatum? Impedit, earum. Vero quam libero
-          voluptatibus ratione mollitia eligendi? Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. Asperiores nulla quos similique debitis,
-          minima odit at reprehenderit. Architecto quia consequatur voluptatum?
-          Impedit, earum. Vero quam libero voluptatibus ratione mollitia
-          eligendi?
+          {description}
         </ShowMoreText>
       </div>
     </div>
