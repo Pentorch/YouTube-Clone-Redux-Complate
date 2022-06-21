@@ -4,13 +4,16 @@ import numeral from "numeral";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
 import ShowMoreText from "react-show-more-text";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getChannelDetails } from "../../redux/actions/channel.action";
 const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
   const { channelId, channelTitle, description, title, publishedAt } = snippet;
   const { viewCount, likeCount } = statistics;
 
   const dispatch = useDispatch();
+
+  const { snippet: channelSnippet, statistics: channelStatistics } =
+    useSelector((state) => state.channelDetails.channel);
 
   useEffect(() => {
     dispatch(getChannelDetails(channelId));
@@ -41,13 +44,17 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
       <div className="videoMetaData__channel d-flex justify-content-between align-items-center my-2 py-3">
         <div className="d-flex">
           <img
-            src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
+            src={channelSnippet?.thumbnails?.default?.url}
             alt="avatar"
-            className="rounder-circle me-3"
+            className="rounded-circle me-3"
           />
           <div className="d-flex flex-column">
             <span>{channelTitle}</span>
-            <span> {numeral(10000).format("0.a")} Subscribers</span>
+            <span>
+              {" "}
+              {numeral(channelStatistics?.subscriberCount).format("0.a")}{" "}
+              Subscribers
+            </span>
           </div>
         </div>
 
