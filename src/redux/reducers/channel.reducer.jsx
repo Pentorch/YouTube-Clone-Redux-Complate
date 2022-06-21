@@ -4,14 +4,15 @@ import {
   CHANNEL_DETAILS_SUCCESS,
 } from "../actionType";
 
-export const channelDetailReducer = (
+export const channelDetailsReducer = (
   state = {
-    loading: false,
+    loading: true,
     channel: {},
+    subscriptionStatus: false,
   },
   action
 ) => {
-  const { type, payload } = action;
+  const { payload, type } = action;
 
   switch (type) {
     case CHANNEL_DETAILS_REQUEST:

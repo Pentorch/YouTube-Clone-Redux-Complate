@@ -1,12 +1,20 @@
-import React from "react";
 import "./_videoMetaData.scss";
 import moment from "moment";
 import numeral from "numeral";
 import { MdThumbUp, MdThumbDown } from "react-icons/md";
 import ShowMoreText from "react-show-more-text";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getChannelDetails } from "../../redux/actions/channel.action";
 const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
   const { channelId, channelTitle, description, title, publishedAt } = snippet;
-  const { viewCount, likeCount, dislikeCount } = statistics;
+  const { viewCount, likeCount } = statistics;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getChannelDetails(channelId));
+  }, [dispatch, channelId]);
 
   return (
     <div className="videoMetaData py-2">
