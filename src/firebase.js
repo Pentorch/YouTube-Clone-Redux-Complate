@@ -3,12 +3,12 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBnNRxdq-V50iEse9NDljS2N1PG0FDlRyA",
-  authDomain: "redux-new-clone-yt.firebaseapp.com",
-  projectId: "redux-new-clone-yt",
-  storageBucket: "redux-new-clone-yt.appspot.com",
-  messagingSenderId: "573083812289",
-  appId: "1:573083812289:web:4c9c5226993eef407b6f40",
+  apiKey: "AIzaSyDMKjvW8hjEo9aJaFllG27NWnp6-QmZvGw",
+  authDomain: "redux-clone-not.firebaseapp.com",
+  projectId: "redux-clone-not",
+  storageBucket: "redux-clone-not.appspot.com",
+  messagingSenderId: "251073707661",
+  appId: "1:251073707661:web:472aebde3acaefa9e96cc4",
 };
 firebase.initializeApp(firebaseConfig);
 

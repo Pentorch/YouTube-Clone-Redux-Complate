@@ -25,7 +25,7 @@ const VideoMetaData = ({ video: { snippet, statistics }, videoId }) => {
             </span>
             <span className="ms-3">
               <MdThumbDown size={26} />
-              Tidak Suka
+              Dislike
             </span>
           </div>
         </div>
