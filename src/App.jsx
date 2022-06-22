@@ -1,12 +1,12 @@
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { Container } from "react-bootstrap";
-import HomeScreens from "./components/Screens/HomeScreens/HomeScreens";
+import HomeScreens from "./Screens/HomeScreens/HomeScreens";
 import { useState } from "react";
 import "./_app.scss";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import LoginScreen from "./components/Screens/LoginScreen/LoginScreen";
+import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 
 const Layout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
