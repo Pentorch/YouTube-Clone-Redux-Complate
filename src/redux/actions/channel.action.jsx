@@ -30,3 +30,25 @@ export const getChannelDetails = (id) => async (dispatch) => {
     });
   }
 };
+
+export const checkSubscriptionStatus = (id) => async (dispatch, getState) => {
+  try {
+    const { data } = await request("/subscriptions", {
+      params: {
+        part: "snippet",
+        forChannelId: id,
+        mine: true,
+      },
+      headers: {
+        Authorization: `Bearer ${getState().auth.accessToken}`,
+      },
+    });
+    dispatch({
+      type: SET_SUBSCRIPTION_STATUS,
+      payload: data.items.length !== 0,
+    });
+    console.log(data);
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
