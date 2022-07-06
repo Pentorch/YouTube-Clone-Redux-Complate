@@ -5,7 +5,10 @@ import { useParams } from "react-router-dom";
 import Comments from "../../components/Comments/Comments";
 import VideoHorizontal from "../../components/VideoHorizontal/VideoHorizontal";
 import VideoMetaData from "../../components/VideoMetaData/VideoMetaData";
-import { getVideoById } from "../../redux/actions/videos.action";
+import {
+  getRelatedVideos,
+  getVideoById,
+} from "../../redux/actions/videos.action";
 import "./_watchScreen.scss";
 const WatchScreen = () => {
   const { id } = useParams();
@@ -14,6 +17,7 @@ const WatchScreen = () => {
 
   useEffect(() => {
     dispatch(getVideoById(id));
+    dispatch(getRelatedVideos(id));
   }, [dispatch, id]);
 
   const { video, loading } = useSelector((state) => state.selectedVideo);
