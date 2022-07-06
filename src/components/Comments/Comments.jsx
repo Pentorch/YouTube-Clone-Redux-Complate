@@ -7,7 +7,7 @@ import {
   addComment,
   getCommentsOfVideoById,
 } from "../../redux/actions/comments.action";
-const Comments = ({ videoId }) => {
+const Comments = ({ videoId, totalComments }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Comments = ({ videoId }) => {
 
   return (
     <div className="comments">
-      <p>1234 Comments</p>
+      <p>{totalComments} Comments</p>
       <div className="comment__form d-flex w-100 my-2">
         <img
           src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"

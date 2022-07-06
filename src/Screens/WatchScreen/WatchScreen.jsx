@@ -36,7 +36,10 @@ const WatchScreen = () => {
           <h6>Loading...</h6>
         )}
 
-        <Comments videoId={id} />
+        <Comments
+          videoId={id}
+          totalComments={video?.statistics?.commentCount}
+        />
       </Col>
       <Col lg={4}>
         {[...Array(10)].map(() => (
