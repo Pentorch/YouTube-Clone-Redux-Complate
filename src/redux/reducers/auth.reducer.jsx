@@ -10,20 +10,22 @@ const initialState = {
   accessToken: sessionStorage.getItem("ytc-access-token")
     ? sessionStorage.getItem("ytc-access-token")
     : null,
-  user: sessionStorage.getItem("ytc-user-token")
-    ? JSON.parse(sessionStorage.getItem("ytc-user-token"))
+  user: sessionStorage.getItem("ytc-user")
+    ? JSON.parse(sessionStorage.getItem("ytc-user"))
     : null,
   loading: false,
 };
 
 export const authReducer = (prevState = initialState, action) => {
   const { type, payload } = action;
+
   switch (type) {
     case LOGIN_REQUEST:
       return {
         ...prevState,
         loading: true,
       };
+
     case LOGIN_SUCCESS:
       return {
         ...prevState,
@@ -49,7 +51,6 @@ export const authReducer = (prevState = initialState, action) => {
         accessToken: null,
         user: null,
       };
-
     default:
       return prevState;
   }

@@ -11,13 +11,14 @@ import {
 
 export const login = () => async (dispatch) => {
   try {
-    dispatch({ type: LOGIN_REQUEST });
+    dispatch({
+      type: LOGIN_REQUEST,
+    });
 
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope("https://www.googleapis.com/auth/youtube.force-ssl");
 
     const res = await auth.signInWithPopup(provider);
-
     const accessToken = res.credential.accessToken;
 
     const profile = {
@@ -26,20 +27,31 @@ export const login = () => async (dispatch) => {
     };
 
     sessionStorage.setItem("ytc-access-token", accessToken);
-    sessionStorage.setItem("ytc-user-token", JSON.stringify(profile));
+    sessionStorage.setItem("ytc-user", JSON.stringify(profile));
 
-    dispatch({ type: LOGIN_SUCCESS, payload: accessToken });
-
-    dispatch({ type: LOAD_PROFILE, payload: profile });
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: accessToken,
+    });
+    dispatch({
+      type: LOAD_PROFILE,
+      payload: profile,
+    });
   } catch (error) {
     console.log(error.message);
-    dispatch({ type: LOGIN_FAIL, payload: error.message });
+    dispatch({
+      type: LOGIN_FAIL,
+      payload: error.message,
+    });
   }
 };
 
 export const log_out = () => async (dispatch) => {
-  auth.signOut();
+  await auth.signOut();
+  dispatch({
+    type: LOG_OUT,
+  });
+
   sessionStorage.removeItem("ytc-access-token");
-  sessionStorage.removeItem("ytc-user-token");
-  dispatch({ type: LOG_OUT });
+  sessionStorage.removeItem("ytc-user");
 };

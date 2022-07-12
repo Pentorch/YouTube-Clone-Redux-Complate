@@ -4,10 +4,10 @@ import {
   COMMENT_LIST_SUCCESS,
 } from "../actionType";
 
-export const commentsListReducer = (
+export const commentListReducer = (
   state = {
     loading: true,
-    channel: null,
+    comments: null,
   },
   action
 ) => {
@@ -31,6 +31,7 @@ export const commentsListReducer = (
         loading: false,
         error: payload,
       };
+
     default:
       return state;
   }

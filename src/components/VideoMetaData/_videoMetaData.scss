@@ -10,21 +10,21 @@
     border-top: 0.2px solid $border-color;
     border-bottom: 0.2px solid $border-color;
     img {
-      width: 48px;
+      width: 50px;
       height: 50px;
     }
+
     button {
       background-color: red;
-      color: white;
-      border-radius: none;
+      color: #fff;
+      border-radius: 0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       &.btn-gray {
-        background-color: $border-color;
-        color: $text-color;
+        background-color: gray;
       }
       &:hover {
-        color: white;
+        color: #fff;
       }
       &:focus {
         border: none;
@@ -36,12 +36,20 @@
     font-size: 0.9rem;
     white-space: pre-line;
     border-bottom: 0.2px solid $border-color;
-    .my-anchor-css-class {
+    .showMoreText {
       text-decoration: none;
       display: block;
       margin: 1rem 0;
       color: #fff;
       font-weight: 500;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .videoMetaData {
+    h5 {
+      font-size: 1.1rem;
     }
   }
 }
