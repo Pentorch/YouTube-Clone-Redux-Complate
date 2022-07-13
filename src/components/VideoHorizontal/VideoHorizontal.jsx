@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./_videoHorizontal.scss";
 
-import { AiFillEye } from "react-icons/ai";
 import request from "../../api";
 
 import moment from "moment";
