@@ -69,12 +69,6 @@ const Video = ({ video }) => {
   return (
     <div className="video" onClick={handleVideoClick}>
       <div className="video__top">
-        {/* <img
-          className="style-scope yt-img-shadow img-fluid "
-          src={medium.url}
-          alt=""
-        /> */}
-
         <LazyLoadImage
           src={medium.url}
           effect="blur"
@@ -84,7 +78,6 @@ const Video = ({ video }) => {
       </div>
       <div className="content-global-img">
         <LazyLoadImage src={chanelIcon?.url} effect="blur" />
-        {/* <img src={chanelIcon?.url} alt="" /> */}
 
         <div className="video__title">{title}</div>
         <div className="video__channel">

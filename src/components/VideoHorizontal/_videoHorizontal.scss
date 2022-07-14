@@ -41,8 +41,6 @@
 
   &__title {
     font-size: 0.95rem;
-
-    // color: #fff;
     letter-spacing: 0.3px;
 
     @include line-clamp(2);
