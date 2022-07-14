@@ -2,13 +2,14 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBds3YArPHBjHb4Q-bnPMEDVZMvf9UFkXI",
-  authDomain: "redux-new-clone-yt.firebaseapp.com",
-  projectId: "redux-new-clone-yt",
-  storageBucket: "redux-new-clone-yt.appspot.com",
-  messagingSenderId: "573083812289",
-  appId: "1:573083812289:web:4c9c5226993eef407b6f40",
+  apiKey: "AIzaSyBDH7HYpJZsonr3lHg-wvUKkplRu3GTTXQ",
+  authDomain: "not-redux-clone.firebaseapp.com",
+  projectId: "not-redux-clone",
+  storageBucket: "not-redux-clone.appspot.com",
+  messagingSenderId: "829428366777",
+  appId: "1:829428366777:web:1d16ba50af784c06c84a68",
 };
+
 firebase.initializeApp(firebaseConfig);
 
 export default firebase.auth();
