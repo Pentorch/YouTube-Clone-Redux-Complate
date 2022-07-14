@@ -44,6 +44,10 @@
 - [x] Management WatchScreen
 - [x] Management SearchScreen
 
+## Noted:
+
+Note: this youtube clone project is still in development and it looks like it will be developed again and there are still many features that want to be developed.
+
 ## Requirement
 
 For running this project please install nodejs.
