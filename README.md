@@ -86,4 +86,4 @@ You can now access the server at http://localhost:3000/auth
 
 ## Link DEMO
 
-- [x] https://not-redux-clone.web.app/auth
+- [x] [Youtube-Redux](https://not-redux-clone.web.app/auth/)
