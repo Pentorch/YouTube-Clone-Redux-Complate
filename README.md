@@ -81,6 +81,8 @@ npm run start
 You can now access the server at http://localhost:3000/auth
 
 ## DEMO
+![Home](https://user-images.githubusercontent.com/59289325/178924789-a1843730-982f-4ac6-ac9b-ef3b07f264ac.png)
+
 
 ## Link DEMO
 
